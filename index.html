@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+ <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Redressed&family=Shizuru&family=Yanone+Kaffeesatz:wght@200;400&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Josefin+Sans:wght@300&family=Redressed&family=Shizuru&family=Yanone+Kaffeesatz:wght@200;400&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+ <script src="https://kit.fontawesome.com/2efe91c6bd.js" crossorigin="anonymous"></script>
+ <!-- CSS only -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+ <script type="text/javascript" src="/path/to/jquery.easy-pie-chart.js"></script>
+ 
+ <link rel="stylesheet"type="text/css" href="/path/to/jquery.easy-pie-chart.css">
+
+
+ <title>MyPortfolio2</title>
+ <style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   }
+ 
+   html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+   }
+ 
+   body {
+    background-color: #555555;
+overflow-x: hidden;
+    background-attachment: fixed;
+ 
+ 
+   }
+ 
+   .preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin:auto auto;
+    justify-content:center;
+    align-content:center;
+    background: url(loading.gif);
+    background-size: cover;
+    object-fit: cover;
+    z-index: 99999;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+ 
+   }
+ 
+   .preloader h4 {
+    text-align: center;
+    color: white;
+ 
+    position: relative;
+    top: 25%;
+   }
+ 
+   .preloader span {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(#0080FF, #00A7FF);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: 1000;
+    font-size: 3rem;
+    letter-spacing: 2.5px;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    top: 50%;
+   }
+
+  .preloader.complete {
+   transform;
+   scale(.0);
+   opacity: 0;
+   height: 60px;
+   width: 60px;
+   display: flex;
+   margin: 0 auto;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+  }
+
+  .nav {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 100%;
+   padding: 20px 25px;
+   z-index: 9999;
+   position: fixed;
+  }
+
+  .nav.sticky {
+   backdrop-filter: blur(14px);
+  }
+
+  .nav h4 {
+   color: white;
+   font-size: 21px;
+   font-family: 'Lobster Two', cursive;
+   letter-spacing: 1.5px;
+  }
+
+  .nav h4 span {
+   background: linear-gradient(45deg, #0069FF, #09C0FF);
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+  }
+
+  .nav button.menu {
+   border: none;
+   outline: none;
+   background: transparent;
+   color: white;
+   transition: all .5s;
+   font-size: 25px;
+  }
+
+  .nav button:hover {}
+
+  .nav button.menu.active {
+   color: #009FF3;
+   transform: rotate(-180deg);
+  }
+
+  .page {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #393F3F38;
+   z-index: 999;
+   transform: translateY(-100%);
+   opacity: 0;
+   transition: all .6s;
+   top: 65px;
+   backdrop-filter: blur(10px);
+  }
+
+  .page.active {
+   transform: translateX(00%);
+   opacity: 1;
+  }
+
+  .page ul li {
+   list-style: none;
+   line-height: 4;
+   text-align: center;
+   color: #CBCBCB;
+   font-family: 'Patrick Hand', cursive;
+  }
+
+  .page ul li a {
+   text-decoration: none;
+   color: white;
+   font-weight: 600;
+   font-family: 'Acme', sans-serif;
+
+  }
+
+  .page ul li a:hover {
+
+   color: #0082DC;
+  }
+
+  .header {
+   height: 60vh;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   top: 65px;
+   padding-top: 10vh;
+
+  }
+
+  .header .txt {
+   padding-left: auto;
+   line-height: 2;
+   padding-top: 8vh;
+   margin: 0 auto;
+   width: 43%;
+transform: translateX(-110%);
+transition: .7s;
+  }
+
+  .header img {
+   height: 35vh;
+   width: auto;
+   border-radius: 4px;
+   margin: 0 auto;
+   padding-right: auto;
+   width: 43%;
+   object-fit: cover;
+   transform: translateX(120%);
+transition: .7s;
+  
+  }
+  .header img.img.anim2[data-scroll="in"]{
+    transform: translateX(0%);
+  }
+  .header .txt h5 {
+   font-size: 17px;
+   color: white;
+   letter-spacing: 1.5px;
+   font-family: 'Patrick Hand', cursive;
+  }
+
+  .header .txt h4 {
+   font-size: 20px;
+   color: white;
+   font-family: 'Lobster Two', cursive;
+  }
+
+  .header .txt h4 span {
+   font-size: 17px;
+   color: #009FF3;
+  }
+
+  .header .txt p {
+   font-size: 12.7px;
+   color: white;
+   width: 100%;
+   font-family: 'Acme', sans-serif;
+  }
+
+  .about {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-top: 10vh;
+   padding-top: 10vh;
+  }
+
+  .skill {
+   margin-top: 10vh;
+   padding-top: 10vh;
+
+  }
+
+  .work,
+  .service,
+  .testimonial,
+  .contact {
+   margin-top: 10vh;
+   padding-top: 10vh;
+
+  }
+
+  .head {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   position: relative;
+   width: 100%;
+  }
+
+  .head h4 {
+   font-size: 23px;
+   color: white;
+   text-align: center;
+box-sizing:content-box;
+
+   width:50%;
+
+ margin:0 auto;
+   font-family: 'Righteous', cursive;
+   letter-spacing: 1.4px;
+   transition: 1s;
+  }
+  .head hr{
+    height: 4px;
+    color:#009FFF;
+    opacity: 3;
+    width: 5%;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    transition:.6s;
+  }
+.head hr.anim5[data-scroll="in"]{
+  width: 50%;
+}
+
+
+  .head h4 span {
+   font-size: 40px;
+   color: #00A7FF;
+  }
+
+  .head p {
+   font-size: 12.5px;
+   color: #CECECE;
+   text-align: center;
+   margin-top: 3vh;
+   font-family: 'Acme', sans-serif;
+  }
+
+  .bttn {
+   display: inline-block;
+   border: none;
+   background: linear-gradient(45deg, #0069FF, #09C0FF);
+   outline: none;
+   border-radius: 4px;
+   padding: 8px 10px;
+   font-weight: 500;
+   color: white;
+   transition: all .6s;
+   margin: 3vh 0;
+   font-family: 'Righteous', cursive;
+  }
+.bttn a{
+ text-decoration: none;
+   color: white;
+
+}
+  .bttn.m {
+   font-size: 15px;
+   margin: 20px auto;
+   font-weight: 500;
+  }
+
+  .bttn:hover {
+   border: .5px solid #00A7FF;
+   color: #09C0FF;
+   background: transparent;
+  }
+
+  .card {
+   position: relative;
+   height: 35vh;
+   width: 45vw;
+   background: linear-gradient(#0098FF, #0098FF 30%, #2E4B5F 30%, #2E4B5F);
+   border-radius: 4px;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   margin-top: 5vh;
+   transition: .6s;
+  }
+
+  .card:hover {
+   box-shadow: -4px -4px 5px #47758A, 4px 4px 5px #314146;
+  }
+
+  .card:nth-child(2) {
+   position: relative;
+   height: 35vh;
+   width: 45vw;
+   background: linear-gradient(#FF0202, #FF0202 30%, #2E4B5F 30%, #2E4B5F);
+   border-radius: 4px;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   margin-top: 5vh;
+  }
+
+  .card:nth-child(3) {
+   position: relative;
+   height: 35vh;
+   width: 45vw;
+   background: linear-gradient(#02FFBD, #02FFBD 30%, #2E4B5F 30%, #2E4B5F);
+   border-radius: 4px;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   margin-top: 5vh;
+  }
+
+  .card:nth-child(4) {
+   position: relative;
+   height: 35vh;
+   width: 45vw;
+   background: linear-gradient(#C502FF, #C502FF 30%, #2E4B5F 30%, #2E4B5F);
+   border-radius: 4px;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   margin-top: 5vh;
+  }
+
+
+
+  .imgBx {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   height: 100%;
+   width: 100%;
+   border-radius: 4px;
+   transform-origin: top;
+   overflow: hidden;
+   transition: .6s;
+  }
+
+  .imgBx img {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+
+  }
+
+  .card:hover .imgBx {
+   transform: translateY(22px) scale(.5);
+  }
+
+  .card .content {
+   position: absolute;
+   bottom: 0px;
+   padding-bottom: 16px;
+   transform: translateY(90px);
+   z-index: -2;
+   opacity: 0;
+   transition: .7s;
+  }
+
+  .card:hover .content {
+   transform: translateY(00px);
+   z-index: 2;
+   opacity: 1;
+
+  }
+
+  .card .content h4 {
+   color: white;
+   text-align: center;
+   font-style: cursive;
+   font-size: 13px;
+   font-family: 'Lobster Two', cursive;
+  }
+
+  .card .content h4 span {
+   color: #0098FF;
+   text-align: center;
+   font-style: cursive;
+   font-size: 11px;
+  }
+
+  .card .content .social {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   width: 100%;
+  }
+
+  .card .content .social a {
+   text-decoration: none;
+   color: white;
+   margin: 0 auto;
+   font-size: 20px;
+   border-radius: 50%;
+   transition: .8s;
+  }
+
+  .card .content .social a:hover {
+   transform: rotate(360deg);
+   color: #0098FF;
+   background: transparent;
+  }
+
+
+  .txt .social {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   width: 100%;
+  }
+
+  .txt .social a {
+   text-decoration: none;
+   color: white;
+   margin: 0 auto;
+   font-size: 25px;
+   border-radius: 50%;
+   transition: .8s;
+  }
+
+  .txt .social a:hover {
+   transform: rotate(360deg);
+   color: #09C0FF;
+
+   background: transparent;
+  }
+
+  .card .content {
+   justify-items: center;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   margin: 0 auto;
+  }
+
+  .card:nth-child(2) .content h4 {
+   color: white;
+   text-align: center;
+   font-style: cursive;
+   font-size: 13px;
+  }
+
+  .card:nth-child(2) .content h4 span {
+   color: #FF0253;
+   text-align: center;
+   font-style: cursive;
+   font-size: 11px;
+  }
+
+  .card:nth-child(2) .content .social a {
+   text-decoration: none;
+   color: white;
+   margin: 0 auto;
+   font-size: 10px;
+   padding: 8px;
+   background-color: #FF0202;
+   ;
+   border-radius: 50%;
+  }
+
+  .card:nth-child(2) .content .social a:hover {
+   transform: rotate(360deg);
+   color: #DD0000;
+   border: .5px solid #DD0000;
+   background: transparent;
+  }
+.about .all{
+  transform:scale(0.1);
+  transition:.8s;
+
+}
+
+.about .all.anim6[data-scroll="in"]{
+  transform:scale(1);
+}
+  .about .all .txt {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   line-height: 2;
+  }
+
+  .about .all .txt h4 {
+   color: white;
+   text-align: center;
+   font-family: 'Lobster Two', cursive;
+  }
+
+  .about .all .txt h4 span {
+   color: #009FFF;
+  }
+
+  .about .all .txt p {
+   color: #ABABAB;
+   text-align: center;
+   font-size: 12.6px;
+   width: 85%;
+   margin: 0 auto;
+   font-family: 'Acme', sans-serif;
+  }
+
+  .fa-bars {
+   display: inline-block;
+
+  }
+
+  .fa-bars.active {
+   display: inline-block;
+
+  }
+
+  .fa-bars.close {
+   display: none;
+
+  }
+
+  .fa-times {
+   display: none;
+
+  }
+
+  .fa-times.close {
+   display: none;
+
+  }
+
+  .fa-times.active {
+   display: inline-block;
+
+  }
+
+  .swiper {
+   height: 40vh;
+   width: 50%;
+   position: absolute;
+   margin-top: 50px;
+   /*  left: 50%;
+      top: 50%;
+     margin-left: -150px;
+      margin-top: -150px;*/
+
+  }
+
+  .swiper:hover img {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   margin: 0 auto;
+   margin-top: 3vh;
+  }
+
+  .mySwiper {
+   position: relative;
+
+  }
+
+  .swiper-slide {
+   background-position: center;
+   background-size: cover;
+   height: 30vh;
+   width: 30%;
+   object-fit: cover;
+   overflow: hidden;
+   border: .4px solid white;
+   box-shadow: -4px -4px 5px #858585, 4px 4px 5px #000000;
+
+  }
+
+  .cont {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   transition: all .7s;
+  }
+
+  /* 
+    .swiper-slide.1 {
+            background-image: url(images2.jpeg);
+
+    }
+
+    .swiper-slide.2 {
+            background-image: url(images8.jpeg);
+
+    }
+
+    .swiper-slide.3 {
+            background-image: url(16.jpg);
+
+    }
+
+    .swiper-slide.4 {
+            background-image: url(9.jpeg);
+
+    }
+ */
+  .swiper-wrapper {}
+
+  .swiper-slide img {
+   display: block;
+   height: 40vh;
+   width: 100%;
+   object-fit: cover;
+   overflow: hidden;
+   transition: all .7s;
+
+  }
+
+  .swiper-slide .cont h4 {
+   font-size: 11px;
+   color: white;
+   text-align: center;
+   line-height: 3;
+  }
+
+  .swiper-slide .cont p {
+   font-size: 9px;
+   color: white;
+   text-align: center;
+   width: 95%;
+   margin: 0 auto;
+   line-height: 2;
+
+  }
+
+  .swiper-slide .cont .social {
+
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   width: 100%;
+   margin-top: 2vh;
+  }
+
+  .cont .social a {
+   text-decoration: none;
+   color: white;
+   margin: 0 auto;
+   font-size: 17px;
+   border-radius: 50%;
+   transition: .8s;
+  }
+
+  .cont .social a:hover {
+   transform: rotate(360deg);
+   color: #0098FF;
+   background: transparent;
+  }
+
+
+  /* Comtact*/
+
+  .form {
+   border: .4px solid #00B6FF;
+   width: 86%;
+   margin: 25px auto;
+   border-radius: 4px;
+  }
+
+  .form .txt {
+   padding-top: 35px;
+   padding-left: 35px;
+   border-radius: 4px 4px 0 0;
+  }
+
+
+
+  .form .txt h4 {
+   color: white;
+  }
+
+  .form .txt ul li {
+   list-style: none;
+   color: white;
+   font-size: 12px;
+   line-height: 2.6;
+  }
+
+  .form .txt ul li i {
+   color: white;
+   font-size: 18px;
+  }
+
+  .form .box {
+   margin-top: 25px;
+   background: linear-gradient(45deg, #0069FF, #09C0FF);
+   padding-top: 35px;
+   padding-left: 35px;
+   border-radius: 0 0 4px 4px;
+
+  }
+
+  .form .box h4 {
+   color: white;
+   line-height: 3;
+  }
+
+  .form .box input {
+   border: .4px solid white;
+   background: transparent;
+   color: white;
+   border-radius: 4px;
+   outline: none;
+   padding: 15px 30px;
+   margin-top: 25px;
+  }
+
+  .form .box input::placeholder {
+   color: white;
+  }
+
+  .form .box textarea {
+   border: .4px solid white;
+   background: transparent;
+   color: white;
+   border-radius: 4px;
+   outline: none;
+   padding: 15px 30px;
+   margin-top: 25px;
+
+  }
+
+  .form .box textarea::placeholder {
+   color: white;
+  }
+
+  .form .box .bttn {
+   border: .4px solid white;
+  }
+
+  /* Comtact*/
+
+
+
+
+  /* Works  */
+
+
+  .projects {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+  }
+
+  .projects .item {
+   height: 25vh;
+   width: 25vh;
+   position: relative;
+   object-fit: cover;
+   overflow: hidden;
+   background-size: cover;
+   margin: 5px auto;
+   transition: .5s;
+   transform: scale(.2);
+  }
+  .projects .item.anim3[data-scroll="in"]{
+    transform: scale(1);
+  }
+  .projects .item .img img {
+   height: 25vh;
+   width: 25vh;
+   object-fit: cover;
+   overflow: hidden;
+   background-size: cover;
+   position: absolute;
+  }
+
+  .projects .item .img {
+   height: 25vh;
+   width: 25vh;
+   border-radius: 6px;
+   object-fit: cover;
+   overflow: hidden;
+   background-size: cover;
+   position: absolute;
+   
+  }
+
+  .projects .item .text a {
+   text-decoration: none;
+   color: #FFFFFF;
+   font-size: 17px;
+   font-family: cursive;
+   text-align: center;
+  }
+
+  .projects .item .text {
+   background-color: #5F5F5F96;
+   height: 25vh;
+   width: 25vh;
+   border-radius: 6px;
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: .6s;
+   transform: translateY(-100%);
+   backdrop-filter: blur(6px);
+
+  }
+
+  .projects .item:hover .text {
+   transform: translateY(0%);
+  }
+
+
+  /* Work  */
+  
+  
+  
+  /* Service */
+  
+  .service .container {
+   display: flex;
+   justify-content:space-between;
+   flex-wrap: wrap;
+  
+   flex-direction:wrap;
+  }
+  .service .container .serve{
+   margin:10px auto;
+   padding:15px;
+  }
+    .service .container .serve i{
+     font-size:50px;
+     color:white;
+     text-align:center;
+     display: flex;
+     justify-content: center;
+     padding:6px;
+     transition:.1s;
+
+    }
+
+  .service .container .serve p{
+   color:white;
+   font-size:16px;
+    text-align:center;
+transition:.4s;
+font-family: 'Josefin Sans', sans-serif;
+  }
+  
+  .service .container .serve{
+   width:47%;
+   transition:.4s;
+
+  }
+    .service .container .serve:hover i{
+     font-size: 60px;
+    color: #0098FF;
+    }
+    .service .container .serve:hover p{
+     
+        color: #0098FF;
+
+    }
+    
+    /* Service */
+   .particles{
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+   }
+
+/* ANIME */
+.anim1[data-scroll="in"]{
+  transform: translateX(0%);
+
+}
+.anim2[data-scroll="in"]{
+  margin:0 auto;
+
+}
+.contact .form{
+  transform: translateX(120%);
+  transition: .6s;
+}
+.contact .anim4[data-scroll="in"]{
+  transform: translateX(0%);
+
+}
+
+
+
+
+
+
+/* ANIME */
+
+
+
+
+@media(min-width:675px ){
+  .nav h4{
+    font-size:40px;
+  }
+  .page ul li a{
+    font-size: 22px;
+  }
+ .header .txt h5{
+    font-size:40px;
+  }
+  .header .txt h4{
+    font-size:34px;
+  }
+  .header .txt h4 span{
+    font-size:34px;
+  }
+  .header .txt p{
+    font-size:21px;
+  }
+  .header img{
+    height:55vh;
+    width:35vw;
+}
+  
+.head h4{
+font-size: 40px;
+}
+.head h4 span{
+  font-size:60px;
+}
+.head p{
+  font-size: 19px;
+}
+.about .all .card{
+  height:55vh;
+}
+.about .all .txt p{
+  font-size:20px;
+}
+.about .all .content h4{
+  font-size:25px;
+}
+.about .all .content .type2{
+font-size: 21px;
+}
+.txt .social{
+  width: 50%;
+  margin:5px auto;
+}
+.service .container .serve p{
+  font-size:20px;
+}
+.work .projects{
+  max-width:765px;
+  margin: 0 auto;
+}
+.swiper-slide{
+   height:60vh;
+    width:22vw;
+}
+.swiper-slide .cont h4{
+  font-size:23px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.swiper-slide .cont p{
+  font-size: 17px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.swiper-slide .cont .social ul li a{
+  font-size:24px;
+}
+.contact .form .txt ul li{
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.contact .form{
+  max-width:765px;
+ 
+}
+
+.contact .form .txt{
+  max-width:765px;
+}
+}
+@media(min-width:1152px ){
+  .skill .container .box.anim7{
+    position: relative;
+
+   width:30vw;
+   height: 42vh;
+  }
+}
+
+/* skill */
+
+.skill .container .box img{
+    height:65px;
+    width: 65px;
+
+  }
+  .skill .container{
+    display: flex;
+   justify-content:space-between;
+   flex-wrap: wrap;
+   flex-direction:wrap;
+  }
+  .skill .container .box h4{
+    text-align: center;
+    font-size:20px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+  }
+  .skill .container .box p{
+    text-align: center;
+    font-size:16px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  .skill .container .box{
+    position: relative;
+  color: white;
+   width:40vw;
+   height: 42vh;
+ 
+  margin:25px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+padding: 10px;
+
+transition:.3s;
+  }
+  .skill .container .box.anim7{
+    transform: scale(.3);
+opacity: 0;
+  }
+  .skill .container .box.anim7[data-scroll="in"]{
+    transform: scale(1);
+opacity: 1;
+  }
+  .skill .container .box::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg , #ffbc00 ,#ff0058);
+  }
+  .skill .container .box::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg , #ffbc00 ,#ff0058);
+    filter: blur(30px);
+  }
+  .skill .container .box:nth-child(2)::before,
+  .skill .container .box:nth-child(2)::after{
+    background: linear-gradient(315deg, red , rgb(0, 162, 255));
+  }
+  .skill .container .box:nth-child(3)::before,
+  .skill .container .box:nth-child(3)::after{
+    background: linear-gradient(315deg, rgb(0, 255, 213) , rgb(0, 226, 75));
+  }
+  .skill .container .box:nth-child(4)::before,
+  .skill .container .box:nth-child(4)::after{
+    background: linear-gradient(315deg, rgb(0, 89, 255), rgb(255, 0, 221));
+  }
+  .skill .container .box span{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    background:rgba(0,0,0,.6) ;
+    z-index: 2;
+  }
+  .skill .container .box span::before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top:0px;
+    left: 0px;
+    background: rgba(255, 255, 255, .1);
+
+  }
+  .skill .container .box.anim7:hover{
+    transform: translateY(-20px);
+  }
+  .skill .container .box .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    z-index: 100;
+  }
+
+/* skill */
+ </style>
+</head>
+
+<body>
+
+ <div class="preloader">
+  <span class="type3">LOADING...</span>
+ </div>
+ <div class="page">
+  <ul>
+   <li> <a href="#header" onclick="toggleMenu() ">Home</a></li>
+   <li><a href="#about" onclick="toggleMenu() ">About Me</a></li>
+   <li><a href="#skill" onclick="toggleMenu() ">My Skills</a></li>
+   <li><a href="#service" onclick="toggleMenu() ">Services</a></li>
+   <li><a href="#work" onclick="toggleMenu() ">My Works</a></li>
+   <li><a href="#testimonial" onclick="toggleMenu() ">Testimonials</a></li>
+   <li><a href="#contact" onclick="toggleMenu() ">Contact & Hire</a></li>
+   <li>Scroll Up/Down to Hide Menu</li>
+  </ul>
+ </div>
+
+ <nav class="nav">
+  <h4>Muhammad <span>Nahid</span></h4>
+ 
+  <button class="menu">
+   <i class="fas fa-bars"></i>
+   <i class="fas fa-times"></i>
+  </button>
+ </nav>
+ <section class="header" id="header">
+  <div class="txt anim1" >
+   <h5>Assalamualaikum...</h5>
+   <h4>I'm <span>Nahid</span></h4>
+   <h4><span class="type"></span></h4>
+   <p>First Of All, I Am An Intermediate Developer. And I Hope You'll Have A Better Idea About My Skills From My Portfolio. I'm still learning and trying to get more skills .</p>
+   <button class="bttn"><a href="#about">Explore More</a></button>
+  </div>
+  <img src="images8.jpeg" alt="" class="img anim2" >
+ </section>
+ <section class="about" id="about">
+  <div class="head">
+   <h4>It's <span>A</span>bout Me</h4><hr  class="anim5">
+   <p>It's My Intro</p>
+  </div>
+  <div class="all anim6">
+   <div class="card">
+    <div class="imgBx">
+     <img src="me2.jpg" alt="">
+    </div>
+    <div class="content">
+     <h4>Muhammad Nahid
+      <br>
+      <span class="type2"></span>
+     </h4>
+     <div class="social">
+      <a href=""><i class="fab fa-facebook"></i></a>
+      <a href=""><i class="fab fa-twitter"></i></a>
+      <a href=""><i class="fab fa-github-square"></i></a>
+      <a href=""><i class="fab fa-instagram"></i></a>
+     </div>
+    </div>
+   </div>
+   <div class="txt">
+    <h4>Iam a <span class="type1"></span></h4>
+    <p>I Am An Intermediate Developer. I'm Still Learning, I'll Continiue My Studies On React.Js . My Plan
+      Is To Be A Mern Stack Developer With Wix</p>
+    <div class="social">
+     <a href=""><i class="fab fa-facebook"></i></a>
+     <a href=""><i class="fab fa-twitter"></i></a>
+     <a href=""><i class="fab fa-github-square"></i></a>
+     <a href=""><i class="fab fa-instagram"></i></a>
+     <a href=""><i class="fab fa-linkedin"></i></a>
+     <a href=""><i class="fab fa-youtube"></i></a>
+    </div>
+    <button class="bttn m">Download CV</button>
+   </div>
+  </div>
+ </section>
+ <section class="skill" id="skill">
+  <div class="head">
+   <h4>My <span>S</span>kills</h4><hr  class="anim5">
+   <p>There's No Limit Of Learning.</p>
+  </div>
+  <div class="container">
+    <div class="box anim7">
+      <span></span>
+      <div class="content">
+        <img src="html.png" alt="">
+        <h4>RAW CSS and WEB</h4>
+        <p>You may have a full raw and uniqe website from me . 
+          I can code a uniqe website with a design for you . </p>
+      
+      </div>
+    </div>
+    <div class="box anim7">
+      <span></span>
+      <div class="content">
+        <img src="coding.png" alt="">
+        <h4>Full Responsive Design</h4>
+        <p>I design fully Responsive websites . Which means your website will be fit on any display size with no bugs .</p>
+   
+      </div>
+    </div>
+    <div class="box anim7">
+      <span></span>
+      <div class="content">
+        <img src="coding (1).png" alt="">
+        <h4>I design and Code The Site</h4>
+        <p>I also designs website on psd file and also code them .
+           If you need a website then tell me your requirements 
+           and I will design and develop the website for you .</p>
+       
+      </div>
+    </div>
+    <div class="box anim7">
+      <span></span>
+      <div class="content ">
+        <img src="wordpress.png" alt="">
+        <h4>I Do WordpressSite</h4>
+        <p>I also do wordpress projects .
+           If you need a wordpress website then I can
+            make it ready for you . </p>
+       
+      </div>
+    </div>
+  </div>
+ </section>
+ <section class="service" id="service">
+  <div class="head">
+   <h4>My <span>S</span>ervices</h4><hr  class="anim5">
+   <p>You can find the services in which I'm expert and I promise the best work on fair price .</p>
+  </div>
+  <div class="container" data-aos="flip-up">
+   <div class="serve">
+    <i class="fab fa-bootstrap"></i>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+   Inventore quos, earum nisi. Possimus.</p>
+   </div>
+   <div class="serve">
+    <i class="fab fa-wordpress"></i>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+       Minus, error nihil dolores.</p>
+   </div>
+   <div class="serve">
+    <i class="fab fa-html5"></i>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Labore illo, culpa temporibus beatae?</p>
+
+   </div>
+   <div class="serve"></div>
+  </div>
+ </section>
+ <section class="work" id="work">
+  <div class="head">
+   <h4>My <span>W</span>orks</h4>
+   <hr  class="anim5">
+   <p>I'm still a student of Web development . I didn't crated any account on any market places . But I have practiced many project . Some of them are here . </p>
+  </div>
+  <div class="projects">
+   <div class="item anim3" >
+    <div class="img">
+     <img src="3.jpg" alt="">
+    </div>
+    <div class="text">
+     <a href="https://muhammadnahid-nd.github.io/NahidSchool/">Visit Website</a>
+    </div>
+   </div>
+   <div class="item  anim3" >
+    <div class="img">
+     <img src="2.jpg" alt="">
+    </div>
+    <div class="text">
+     <a href="https://muhammadnahid-nd.github.io/Nahid/">Visit Website</a>
+    </div>
+   </div>
+   <div class="item  anim3" >
+    <div class="img">
+     <img src="item1.jpeg" alt="">
+    </div>
+    <div class="text  anim3">
+     <a href="">Visit Website</a>
+    </div>
+   </div>
+   <div class="item  anim3">
+    <div class="img">
+     <img src="4.jpg" alt="">
+    </div>
+    <div class="text">
+     <a href="https://muhammadnahid-nd.github.io/Mic/">Visit Website</a>
+    </div>
+   </div>
+   <div class="item  anim3">
+    <div class="img">
+     <img src="5.jpg" alt="">
+    </div>
+    <div class="text">
+     <a href="https://muhammadnahid-nd.github.io/Mic/">Visit Website</a>
+    </div>
+   </div>
+   <div class="item  anim3">
+    <div class="img">
+     <img src="item2.jpeg" alt="">
+    </div>
+    <div class="text">
+     <a href="">Visit Website</a>
+    </div>
+   </div>
+   <div class="item  anim3">
+    <div class="img">
+     <img src="6.jpg" alt="">
+    </div>
+    <div class="text">
+     <a href="https://muhammadnahid-nd.github.io/Mic/">Visit Website</a>
+    </div>
+   </div>
+   <div class="item  anim3">
+    <div class="img">
+     <img src="item3.jpeg" alt="">
+    </div>
+    <div class="text">
+     <a href="">Visit Website</a>
+    </div>
+   </div>
+   <div class="item  anim3">
+    <div class="img">
+     <img src="item4.jpeg" alt="">
+    </div>
+    <div class="text">
+     <a href="">Visit Website</a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="testimonial" id="testimonial">
+  <div class="head">
+   <h4><span>T</span>estimonials</h4><hr  class="anim5">
+   <p>Some of my buyers rated my works . <br>
+    Tap on the images to lnow to buyers review . <br>Slide left to know buyers .
+   </p>
+  </div>
+  <div class="container">
+   <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide 2">
+         <img src="9.jpeg" />
+         <div class="cont">
+          <h4>Al-Amin H.Abir</h4>
+          <p>This guy is so cool and also expert on his work . You may have relax working with him.
+          </p>
+          <div class="social">
+           <a href=""><i class="fab fa-facebook"></i></a>
+           <a href=""><i class="fab fa-twitter"></i></a>
+           <a href=""><i class="fab fa-instagram"></i></a>
+           <a href=""><i class="fab fa-linkedin"></i></a>
+          </div>
+         </div>
+        </div>  
+     
+     <div class="swiper-slide 1">
+      <img src="16.jpg" />
+      <div class="cont">
+       <h4>K.A.Sihab</h4>
+       <p>This guy is so cool and also expert on his work . You may have relax working with him.
+       </p>
+       <div class="social">
+        <a href=""><i class="fab fa-facebook"></i></a>
+        <a href=""><i class="fab fa-twitter"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+        <a href=""><i class="fab fa-linkedin"></i></a>
+       </div>
+      </div>
+     </div>
+
+     <div class="swiper-slide 3">
+      <img src="images8.jpeg" />
+      <div class="cont">
+       <h4>Fahim Sarkar</h4>
+       <p>This guy is so cool and also expert on his work . You may have relax working with him.
+       </p>
+       <div class="social">
+        <a href=""><i class="fab fa-facebook"></i></a>
+        <a href=""><i class="fab fa-twitter"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+        <a href=""><i class="fab fa-linkedin"></i></a>
+       </div>
+      </div>
+     </div>
+     <div class="swiper-slide 4">
+      <img src="images2.jpeg" />
+      <div class="cont">
+       <h4>Ab Siam</h4>
+       <p>This guy is so cool and also expert on his work . You may have relax working with him.
+       </p>
+       <div class="social">
+        <a href=""><i class="fab fa-facebook"></i></a>
+        <a href=""><i class="fab fa-twitter"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+        <a href=""><i class="fab fa-linkedin"></i></a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="swiper-pagination"></div>
+   </div>
+  </div>
+ </section>
+ <section class="contact" id="contact">
+  <div class="head">
+   <h4><span>C</span>ontact</h4><hr class="anim5">
+   <p>Contact me to my any project or hire me for vreate your own uniqe or WordPress website .</p>
+  </div>
+  <div class="form anim4">
+   <div class="txt">
+    <h4>Let's Get In Touch</h4>
+    <ul>
+     <li><i class="fas fa-map-marker-alt"></i> Boalia , Daolatpur , Kushtia.</li>
+     <li><i class="fas fa-envelope"></i> nahidasfur@gmail.com</li>
+     <li><i class="fas fa-phone"></i> 019573440**</li>
+    </ul>
+    <div class="social">
+     <a href=""><i class="fab fa-facebook"></i></a>
+     <a href=""><i class="fab fa-twitter"></i></a>
+     <a href=""><i class="fab fa-instagram"></i></a>
+     <a href=""><i class="fab fa-linkedin"></i></a>
+    </div>
+   </div>
+    </div>
+    <div class="chat">
+      <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+    </div>
+    <script type="text/javascript">
+      $(function() {
+          $('.chart').easyPieChart({
+              //your configuration goes here
+          });
+      });
+      </script>
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "113355531264821");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v13.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    </div>
+ </section>
+
+ <script src="particles.js"></script>
+ <script src="app.js"></script>
+<script src="scroll-out.js"></script>
+ <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+ <script>
+   AOS.init({
+    offset:270, 
+  delay:200, 
+  duration:700, 
+  easing: 'ease', 
+   });
+ </script>
+ <script src="scroll-out.js"></script>
+ <script>
+ScrollOut({
+  targets:".anim1 , .anim2 , .anim3 , .anim4 , .anim5 , .anim6 , .anim7 "
+})
+ </script>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="jquery.easypiechart.js"></script>
+<script>
+    $(function() {
+        $('.chart').easyPieChart({
+            //your options goes here
+        });
+    });
+</script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+ <script src="jquery.easypiechart.js"></script>
+ <script>
+  $(window).on('load', function() {
+   $('.preloader').addClass('complete')
+  })
+ </script>
+ <script>
+  let menu = document.querySelector('.menu');
+  let page = document.querySelector('.page');
+  menu.addEventListener('click', function() {
+   page.classList.toggle('active');
+   menu.classList.toggle('active');
+  });
+
+  function toggleMenu() {
+   let menu = document.querySelector('.menu');
+   let page = document.querySelector('.page');
+   menu.classList.remove('active');
+   page.classList.remove('active');
+  }
+ </script>
+ <script>
+  window.addEventListener('scroll', function() {
+   const page = document.querySelector('.page');
+   const menu = document.querySelector('.menu');
+   page.classList.remove('active', window.scrollY > 0);
+   menu.classList.remove('active');
+
+  })
+ </script>
+ <script>
+  window.addEventListener('scroll', function() {
+   const nav = document.querySelector('.nav');
+   nav.classList.toggle('sticky', window.scrollY > 0)
+  })
+ </script>
+ <script src="typed.js"></script>
+ <script>
+  var typed = new Typed('.type', {
+   strings: [
+         'Web Developer...',
+         'App Developer...',
+         'UI Designer...',
+         'YouTuber...'
+          ],
+   typeSpeed: 50,
+   backSpeed: 50,
+   startDelay: 10,
+   loop: true
+  });
+ </script>
+ <script>
+  var typed = new Typed('.type1', {
+   strings: [
+             'Web Developer...',
+             'App Developer...',
+             'UI Designer...',
+             'YouTuber...'
+              ],
+   typeSpeed: 50,
+   backSpeed: 50,
+   startDelay: 10,
+   loop: true
+  });
+ </script>
+ <script>
+  var typed = new Typed('.type2', {
+   strings: [
+              'Web Developer...',
+              'App Developer...',
+              'UI Designer...',
+              'YouTuber...'
+               ],
+   typeSpeed: 50,
+   backSpeed: 50,
+   startDelay: 10,
+   loop: true
+  });
+ </script>
+ <script>
+  var typed = new Typed('.type3', {
+   strings: [
+              'LOADING...'
+               ],
+   typeSpeed: 150,
+   backSpeed: 150,
+   startDelay: 40,
+   loop: true
+  });
+ </script>
+ <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+ <script>
+  var swiper = new Swiper(".mySwiper", {
+   effect: "cube",
+   grabCursor: true,
+   cubeEffect: {
+    shadow: false,
+    slideShadows: true,
+    shadowOffset: 20,
+    shadowScale: 0.94,
+   },
+   pagination: {
+    el: ".swiper-pagination",
+   },
+  });
+ </script>
+ <!-- JavaScript Bundle with Popper -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

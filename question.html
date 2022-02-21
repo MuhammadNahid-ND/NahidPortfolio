@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #323341;
+    }
+
+    .question {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid #FF7700;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    .all-questions {
+      font-size: 10px;
+      color: white;
+      margin-top:1rem;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+.qicon i{
+  font-size:17px;
+  position: absolute;
+}
+    .answer{
+      max-height:0px;
+      overflow: hidden; 
+    }
+
+  .question:target .answer{
+      max-height: 260px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="faq">
+    <div class="all-questions">
+      <div class="question" id="q1">
+        <div class="qtxt">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, ab?
+        </div>
+        <div class="qicon">
+          <i>+</i>
+          <i>-</i>
+        </div>
+      </div>
+      <div class="answer">
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam minus voluptatibus voluptate esse, autem alias quas suscipit vitae ab illo ullam, eum perspiciatis culpa consectetur eius.</p>
+      </div>
+    </div>
+    <div class="all-questions">
+      <div class="question" id="q2">
+        <div class="qtxt">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, ab?
+        </div>
+        <div class="qicon">
+          <i>+</i>
+          <i>-</i>
+        </div>
+      </div>
+      <div class="answer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam minus voluptatibus voluptate esse, autem alias quas suscipit vitae ab illo ullam, eum perspiciatis culpa consectetur eius.</p>
+      </div>
+    </div>
+    <div class="all-questions">
+      <div class="question" id="q3">
+        <div class="qtxt">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, ab?
+        </div>
+        <div class="qicon">
+          <i>+</i>
+          <i>-</i>
+        </div>
+      </div>
+      <div class="answer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam minus voluptatibus voluptate esse, autem alias quas suscipit vitae ab illo ullam, eum perspiciatis culpa consectetur eius.</p>
+      </div>
+    </div>
+    <div class="all-questions">
+      <div class="question" id="q4">
+        <div class="qtxt">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, ab?
+        </div>
+        <div class="qicon">
+          <i>+</i>
+          <i>-</i>
+        </div>
+      </div>
+      <div class="answer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam minus voluptatibus voluptate esse, autem alias quas suscipit vitae ab illo ullam, eum perspiciatis culpa consectetur eius.</p>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

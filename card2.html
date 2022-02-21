@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Samsung_ringtone.mp3">
+  <title></title>
+  <style>
+    body {
+      background: #293F56;
+
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .card {
+      position: relative;
+      height: 35vh;
+      width: 45vw;
+      background: linear-gradient(#0098FF, #0098FF 30%, #2E4B5F 30%, #2E4B5F);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      margin-top: 5vh;
+      transition:.6s;
+    }
+.card:hover{
+  box-shadow:-4px -4px 5px #47758A,4px 4px 5px #314146;
+}
+    .card:nth-child(2) {
+      position: relative;
+      height: 35vh;
+      width: 45vw;
+      background: linear-gradient(#FF0202, #FF0202 30%, #2E4B5F 30%, #2E4B5F);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      margin-top: 5vh;
+    }
+
+    .card:nth-child(3) {
+      position: relative;
+      height: 35vh;
+      width: 45vw;
+      background: linear-gradient(#02FFBD, #02FFBD 30%, #2E4B5F 30%, #2E4B5F);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      margin-top: 5vh;
+    }
+
+    .card:nth-child(4) {
+      position: relative;
+      height: 35vh;
+      width: 45vw;
+      background: linear-gradient(#C502FF, #C502FF 30%, #2E4B5F 30%, #2E4B5F);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      margin-top: 5vh;
+    }
+
+
+
+    .imgBx {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      border-radius: 4px;
+      transform-origin: top;
+      overflow: hidden;
+      transition: .6s;
+    }
+
+    .imgBx img {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+    }
+
+    .card:hover .imgBx {
+      transform: translateY(22px) scale(.5);
+    }
+
+    .content {
+      position: absolute;
+      bottom: 0px;
+      padding-bottom: 16px;
+      transform: translateY(90px);
+      z-index: -2;
+      opacity: 0;
+      transition: .7s;
+    }
+
+    .card:hover .content {
+      transform: translateY(00px);
+      z-index: 2;
+      opacity: 1;
+
+    }
+
+    .content h4 {
+      color: white;
+      text-align: center;
+      font-style: cursive;
+      font-size: 13px;
+    }
+
+    .content h4 span {
+      color: #0098FF;
+      text-align: center;
+      font-style: cursive;
+      font-size: 11px;
+    }
+
+    .content .social {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .content .social a {
+      text-decoration: none;
+      color: white;
+      margin: 0 auto;
+      font-size: 10px;
+      padding: 8px;
+      background-color: #0098FF;
+      border-radius: 50%;
+      transition: .8s;
+    }
+
+    .content .social a:hover {
+      transform: rotate(360deg);
+      color: #0098FF;
+      border: .5px solid #0098FF;
+      background: transparent;
+    }
+
+    .card:nth-child(2) .content h4 {
+      color: white;
+      text-align: center;
+      font-style: cursive;
+      font-size: 13px;
+    }
+
+    .card:nth-child(2) .content h4 span {
+      color: #FF0253;
+      text-align: center;
+      font-style: cursive;
+      font-size: 11px;
+    }
+
+    .card:nth-child(2) .content .social a {
+      text-decoration: none;
+      color: white;
+      margin: 0 auto;
+      font-size: 10px;
+      padding: 8px;
+      background-color: #FF0202;
+      ;
+      border-radius: 50%;
+    }
+
+    .card:nth-child(2) .content .social a:hover {
+      transform: rotate(360deg);
+      color: #DD0000;
+      border: .5px solid #DD0000;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="imgBx">
+        <img src="me2.jpg" alt="">
+      </div>
+      <div class="content">
+        <h4>Muhammad Nahid
+          <br>
+          <span>Web Developer</span></h4>
+        <div class="social">
+          <a href=""><i>1</i></a>
+          <a href=""><i>2</i></a>
+          <a href=""><i>3</i></a>
+          <a href=""><i>4</i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgBx">
+        <img src="me2.jpg" alt="">
+      </div>
+      <div class="content">
+        <h4>Muhammad Nahid
+          <br>
+          <span>Web Developer</span></h4>
+        <div class="social">
+          <a href=""><i>1</i></a>
+          <a href=""><i>2</i></a>
+          <a href=""><i>3</i></a>
+          <a href=""><i>4</i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgBx">
+        <img src="1.jpg" alt="">
+      </div>
+      <div class="content">
+        <h4>Muhammad Nahid
+          <br>
+          <span>Web Developer</span></h4>
+        <div class="social">
+          <a href=""><i>1</i></a>
+          <a href=""><i>2</i></a>
+          <a href=""><i>3</i></a>
+          <a href=""><i>4</i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgBx">
+        <img src="images2.jpeg" alt="">
+      </div>
+      <div class="content">
+        <h4>Muhammad Nahid
+          <br>
+          <span>Web Developer</span></h4>
+        <div class="social">
+          <a href=""><i>1</i></a>
+          <a href=""><i>2</i></a>
+          <a href=""><i>3</i></a>
+          <a href=""><i>4</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
